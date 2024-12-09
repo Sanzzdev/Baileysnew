@@ -4,7 +4,7 @@
  
 ## Example
 
-Do check out & run [example.ts](https://github.com/FizzxyDev/FizzxyBaileys/blob/master/Example/example.ts) to see an example usage of the library.
+Do check out & run [example.ts](https://github.com/Sanzzdev/Baileysnew/blob/master/Example/example.ts) to see an example usage of the library.
 The script covers most common use cases.
 To run the example script, download or clone the repo and then type the following in a terminal:
 1. ``` cd path/to/FizzxyBaileys ```
@@ -15,17 +15,17 @@ To run the example script, download or clone the repo and then type the followin
 
 Use the stable version:
 ```
-yarn add github:FizzxyDev/FizzxyBaileys
+yarn add github:Sanzzdev/Baileysnew
 ```
 
 Use the edge version (no guarantee of stability, but latest fixes + features)
 ```
-yarn add github:FizzxyDev/FizzxyBaileys
+yarn add github:Sanzzdev/Baileysnew
 ```
 
 Then import your code using:
 ``` ts 
-import makeWASocket from 'FizzxyDev/FizzxyBaileys'
+import makeWASocket from 'Sanzzdev/Baileysnew'
 ```
 
 ## Unit Tests
@@ -35,7 +35,7 @@ TODO
 ## Connecting
 
 ``` ts
-import makeWASocket, { DisconnectReason } from 'FizzxyDev/FizzxyBaileys'
+import makeWASocket, { DisconnectReason } from 'Sanzzdev/Baileysnew'
 import { Boom } from '@hapi/boom'
 
 async function connectToWhatsApp () {
@@ -165,7 +165,7 @@ You obviously don't want to keep scanning the QR code every time you want to con
 
 So, you can load the credentials to log back in:
 ``` ts
-import makeWASocket, { BufferJSON, useMultiFileAuthState } from 'FizzxyDev/FizzxyBaileys'
+import makeWASocket, { BufferJSON, useMultiFileAuthState } from 'Sanzzdev/Baileysnew'
 import * as fs from 'fs'
 
 // utility function to help save the auth state in a single folder
@@ -278,7 +278,7 @@ FizzxyBaileys does not come with a defacto storage for chats, contacts, or messa
 It can be used as follows:
 
 ``` ts
-import makeWASocket, { makeInMemoryStore } from 'FizzxyDev/FizzxyBaileys'
+import makeWASocket, { makeInMemoryStore } from 'Sanzzdev/Baileysnew'
 // the store maintains the data of the WA connection in memory
 // can be written out to a file & read from it
 const store = makeInMemoryStore({ })
@@ -317,7 +317,7 @@ The store also provides some simple functions such as `loadMessages` that utiliz
 ### Non-Media Messages
 
 ``` ts
-import { MessageType, MessageOptions, Mimetype } from 'FizzxyDev/FizzxyBaileys'
+import { MessageType, MessageOptions, Mimetype } from 'Sanzzdev/Baileysnew'
 
 const id = 'abcd@s.whatsapp.net' // the WhatsApp ID 
 // send a simple text!
@@ -416,7 +416,7 @@ let msg = generateWAMessageFromContent(id, {
         
 //send a template message!
 const templateButtons = [
-    {index: 1, urlButton: {displayText: '⭐ Star FizzxyBaileys on GitHub!', url: 'https://github.com/FizzxyDev/FizzxyBaileys'}},
+    {index: 1, urlButton: {displayText: '⭐ Star FizzxyBaileys on GitHub!', url: 'https://github.com/Sanzzdev/Baileysnew'}},
     {index: 2, callButton: {displayText: 'Call me!', phoneNumber: '+1 (234) 5678-901'}},
     {index: 3, quickReplyButton: {displayText: 'This is a reply, just like normal buttons!', id: 'id-like-buttons-message'}},
 ]
@@ -475,7 +475,7 @@ const sendMsg = await sock.sendMessage(id, reactionMessage)
 4. Send a link:
 ``` ts
 // send a link
-const sentMsg  = await sock.sendMessage(id, { text: 'Hi, this was sent using https://github.com/FizzxyDev/FizzxyBaileys' })
+const sentMsg  = await sock.sendMessage(id, { text: 'Hi, this was sent using https://github.com/Sanzzdev/Baileysnew' })
 ```
 
 ### Media Messages
@@ -485,7 +485,7 @@ Sending media (video, stickers, images) is easier & more efficient than ever.
 - When specifying a media url, FizzxyBaileys never loads the entire buffer into memory; it even encrypts the media as a readable stream.
 
 ``` ts
-import { MessageType, MessageOptions, Mimetype } from 'FizzxyDev/FizzxyBaileys'
+import { MessageType, MessageOptions, Mimetype } from 'Sanzzdev/Baileysnew'
 // Sending gifs
 await sock.sendMessage(
     id, 
@@ -567,7 +567,7 @@ const sendMsg = await sock.sendMessage(id, templateMessage)
                                     Do not enter this field if you want to automatically generate a thumb
                                 */
         mimetype: Mimetype.pdf, /* (for media messages) specify the type of media (optional for all media types except documents),
-                                    import {Mimetype} from 'FizzxyDev/FizzxyBaileys'
+                                    import {Mimetype} from 'Sanzzdev/Baileysnew'
                                 */
         fileName: 'somefile.pdf', // (for media messages) file name for the media
         /* will send audio messages as voice notes, if set to true */
@@ -626,7 +626,7 @@ The presence expires after about 10 seconds.
 If you want to save the media you received
 ``` ts
 import { writeFile } from 'fs/promises'
-import { downloadMediaMessage } from 'FizzxyDev/FizzxyBaileys'
+import { downloadMediaMessage } from 'Sanzzdev/Baileysnew'
 
 sock.ev.on('messages.upsert', async ({ messages }) => {
     const m = messages[0]
